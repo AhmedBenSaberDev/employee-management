@@ -7,7 +7,7 @@
 
       <!-- Main content -->
       <section class="content">
-
+        @if ($employee)                
         <div class="row">
             <div class="offset-lg-2 col-lg-8 my-5">
           <div class="box bg-info bg-img" style="background-image: url({{  asset('assets/images/bg-1.png') }}">
@@ -21,6 +21,7 @@
           </div>
       </div>
         </div>
+        @endif
     </section>
     <!-- /.content -->
     </div>

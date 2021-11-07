@@ -9,6 +9,7 @@ window._ = require('lodash');
 window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.baseURL = 'http://ahmed91.sites.3wa.io/Employee-management/public';
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
@@ -24,6 +25,7 @@ window.Echo = new Echo({
     broadcaster: 'pusher',
     key: process.env.MIX_PUSHER_APP_KEY,
     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+    host: 'http://ahmed91.sites.3wa.io/Employee-management/public',
     forceTLS: true
 });
 
@@ -32,7 +34,7 @@ let userId = $('#user_id').val();
 
 window.Echo.private('App.Models.User.' + userId)
     .notification((notification) => {
-        
+         console.log(notification)
         document.querySelector('#notif-count').innerHTML =  parseInt(document.querySelector('#notif-count').innerHTML) +1
 
         let notifMenu = document.querySelector('#notification-menu');
@@ -163,5 +165,19 @@ window.Echo.channel('chat').listen('.chat-message',(event)  => {
     
         $('#chat-message').val('')
     }
+
+})
+
+
+
+console.log(userId)
+window.Echo.channel('task'.userId).listen('.task-message',(event)  => {
+
+   console.log("testt".event.message)
+
+})
+window.Echo.channel('task').listen('.task-message',(event)  => {
+
+   console.log("testt".event)
 
 })

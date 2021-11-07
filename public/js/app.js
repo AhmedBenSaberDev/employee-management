@@ -5317,6 +5317,7 @@ window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.baseURL = 'http://ahmed91.sites.3wa.io/Employee-management/public';
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
@@ -5329,11 +5330,13 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
   key: "1d7efa41dce888a31dd4",
   cluster: "eu",
+  host: 'http://ahmed91.sites.3wa.io/Employee-management/public',
   forceTLS: true
 }); // TASKS
 
 var userId = $('#user_id').val();
 window.Echo["private"]('App.Models.User.' + userId).notification(function (notification) {
+  console.log(notification);
   document.querySelector('#notif-count').innerHTML = parseInt(document.querySelector('#notif-count').innerHTML) + 1;
   var notifMenu = document.querySelector('#notification-menu');
   var liEl = document.createElement('li');
@@ -5414,6 +5417,13 @@ window.Echo.channel('chat').listen('.chat-message', function (event) {
 
     $('#chat-message').val('');
   }
+});
+console.log(userId);
+window.Echo.channel('task'.userId).listen('.task-message', function (event) {
+  console.log("testt".event.message);
+});
+window.Echo.channel('task').listen('.task-message', function (event) {
+  console.log("testt".event);
 });
 
 /***/ }),

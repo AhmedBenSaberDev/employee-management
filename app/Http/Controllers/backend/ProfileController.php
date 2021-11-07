@@ -30,9 +30,9 @@ class ProfileController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg',
             "email" => 'required|email|unique:users,email,'.Auth::user()->id,
-            "name" => "required",
+            "name" => "required|unique:users,name,".auth()->user()->id,
         ]);
 
         $user = User::find(Auth::user()->id);

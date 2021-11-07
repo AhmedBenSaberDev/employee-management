@@ -13,7 +13,7 @@
                    <div class="box-body">
                      <div class="row">
                        <div class="col">
-                           <form  method="POST" action="{{ route('user.store') }}">
+                           <form  method="POST" action="{{ route('user.update',$user->id) }}">
                             @csrf
                             <div class="row">
                                <div class="col-12">	

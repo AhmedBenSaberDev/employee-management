@@ -108,7 +108,7 @@
 	<div class="form-group">
 		<h5>Profile Image  
             @if ($errors->first('image'))
-                <span class="text-danger">* {{ $errors->first('name') }}</span>
+                <span class="text-danger">* {{ $errors->first('image') }}</span>
             @endif </h5>
 		<div class="controls">
 	 <input type="file" name="image" class="form-control" id="image" >  </div>
