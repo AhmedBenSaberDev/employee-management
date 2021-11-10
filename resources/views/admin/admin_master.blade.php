@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{{asset('backend/images/favicon.ico')}}">
 
-    <title>F.Society</title>
+    <title>Company</title>
     <meta name="csrf-token" content="{{ csrf_token() }}" >
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="{{ asset('backend/css/vendors_css.css') }}">
